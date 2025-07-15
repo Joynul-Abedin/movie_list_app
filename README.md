@@ -48,7 +48,7 @@ A Flutter application that allows users to manage their movie collection with fe
 
 ### One-Line Setup (if you have Flutter installed)
 ```bash
-git clone <repository-url> && cd movie_list_app && flutter pub get && flutter packages pub run build_runner build && flutter run
+git clone https://github.com/Joynul-Abedin/movie_list_app.git && cd movie_list_app && flutter pub get && flutter packages pub run build_runner build && flutter run
 ```
 
 ### Prerequisites
@@ -61,7 +61,7 @@ git clone <repository-url> && cd movie_list_app && flutter pub get && flutter pa
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Joynul-Abedin/movie_list_app.git
    cd movie_list_app
    ```
 
