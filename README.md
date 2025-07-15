@@ -9,15 +9,16 @@ A Flutter application that allows users to manage their movie collection with fe
 - **Favorite System**: Mark/unmark movies as favorites using heart icons
 - **Delete Movies**: Remove movies from the list with confirmation dialog
 - **Data Persistence**: Local storage using Hive database
-- **State Management**: Provider pattern for reactive UI updates
+- **State Management**: Riverpod for reactive and scalable state management
 - **Comprehensive Testing**: Unit, widget, and integration tests
 
 ## Architecture
 
 ### State Management
-- **Provider**: Used for state management across the application
-- **MovieProvider**: Manages movie data and business logic
-- **ChangeNotifier**: Enables reactive UI updates
+- **Riverpod**: Modern state management solution with compile-time safety
+- **StateNotifier**: Manages movie state with immutable state objects
+- **Provider Scope**: Dependency injection and state isolation
+- **Consumer Widgets**: Reactive UI updates with automatic rebuilds
 
 ### Data Persistence
 - **Hive**: NoSQL database for local data storage
@@ -27,24 +28,24 @@ A Flutter application that allows users to manage their movie collection with fe
 ### Project Structure
 ```
 lib/
-├── main.dart                 # App entry point
+├── main.dart                 # App entry point with ProviderScope
 ├── models/
 │   └── movie.dart           # Movie data model with Hive annotations
 ├── providers/
-│   └── movie_provider.dart  # State management and business logic
+│   └── movie_provider.dart  # Riverpod providers and state notifiers
 ├── screens/
-│   ├── movie_list_screen.dart    # Main screen displaying movie list
-│   └── add_movie_screen.dart     # Form screen for adding movies
+│   ├── movie_list_screen.dart    # Main screen with ConsumerStatefulWidget
+│   └── add_movie_screen.dart     # Form screen with ConsumerStatefulWidget
 ├── services/
 │   └── movie_service.dart   # Data access layer for Hive operations
 └── widgets/
-    └── movie_card.dart      # Reusable movie display component
+    └── movie_card.dart      # Reusable movie display with ConsumerWidget
 
 test/
 ├── models/
-├── providers/
-├── screens/
-├── widgets/
+├── providers/               # Riverpod provider tests with ProviderContainer
+├── screens/                 # Widget tests with ProviderScope
+├── widgets/                 # Component tests with ProviderScope
 └── test_helpers/
 
 integration_test/
@@ -136,7 +137,7 @@ flutter test
 
 ### Production Dependencies
 - `flutter`: Flutter SDK
-- `provider`: State management
+- `flutter_riverpod`: Modern state management solution
 - `hive`: Local database
 - `hive_flutter`: Flutter integration for Hive
 - `path_provider`: File system paths
@@ -162,10 +163,11 @@ The project uses Flutter's recommended linting rules defined in `analysis_option
 
 ## Performance Considerations
 
-- **Efficient State Management**: Provider pattern minimizes unnecessary rebuilds
+- **Efficient State Management**: Riverpod's fine-grained reactivity minimizes unnecessary rebuilds
 - **Local Storage**: Hive provides fast, lightweight data persistence
-- **Memory Management**: Proper disposal of controllers and providers
+- **Memory Management**: Automatic provider disposal and state cleanup
 - **Lazy Loading**: Efficient list rendering with ListView.builder
+- **Compile-time Safety**: Riverpod catches state management errors at compile time
 
 ## Troubleshooting
 
